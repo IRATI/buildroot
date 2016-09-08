@@ -1,0 +1,5 @@
+config BR2_PACKAGE_OPENJDK_BIN
+	bool "openjdk (precompiled glibc binaries)"
+	depends on BR2_x86_64
+	help
+	  Precompiled openjdk runtime based on the openjdk debian packages.
