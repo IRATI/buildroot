@@ -1,23 +1,23 @@
 diff --git a/rina-tools/configure.ac b/rina-tools/configure.ac
-index 2dbd452..24e3bf1 100644
+index e80b9e0..43fd4e6 100644
 --- a/rina-tools/configure.ac
 +++ b/rina-tools/configure.ac
-@@ -153,6 +153,7 @@ AC_CONFIG_FILES([
-     src/rina-cdap-echo/Makefile
-     src/manager/Makefile
+@@ -167,6 +167,7 @@ AC_CONFIG_FILES([
+     src/cdapc/Makefile
+     src/cdapc/encoders/Makefile
      src/common/tclap/Makefile
 +    src/mac2ifname/Makefile
  
      doc/Makefile
  ])
 diff --git a/rina-tools/src/Makefile.am b/rina-tools/src/Makefile.am
-index 0529736..fc292e4 100644
+index 2d1fed2..c248be4 100644
 --- a/rina-tools/src/Makefile.am
 +++ b/rina-tools/src/Makefile.am
 @@ -5,6 +5,7 @@
  #
  
- SUBDIRS                            = common rina-echo-time rina-cdap-echo manager
+ SUBDIRS                            = common rina-echo-time rina-cdap-echo manager cdapc
 +SUBDIRS 			  += mac2ifname
  EXTRA_DIST                         =
  DISTCLEANFILES                     =
