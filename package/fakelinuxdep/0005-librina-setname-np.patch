@@ -1,0 +1,16 @@
+diff --git a/librina/src/concurrency.cc b/librina/src/concurrency.cc
+index 11bf121..6d76397 100644
+--- a/librina/src/concurrency.cc
++++ b/librina/src/concurrency.cc
+@@ -323,9 +323,10 @@ void Thread::start()
+ 		LOG_CRIT("%s", ConcurrentException::error_create_thread.c_str());
+ 		throw ConcurrentException(ConcurrentException::error_create_thread);
+ 	}
+-
++#if 0
+ 	if (thread_attrs->getName() != "")
+ 		pthread_setname_np(thread_id_, thread_attrs->getName().c_str());
++#endif
+ }
+ 
+ pthread_t Thread::getThreadType() const{
