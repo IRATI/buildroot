@@ -2,13 +2,13 @@
 # rina-tools                               #
 ############################################
 
-RINA_TOOLS_VERSION = pristine-1.5
+RINA_TOOLS_VERSION = arcfire
 
 #RINA_TOOLS_SITE = https://github.com/IRATI/stack.git
 #RINA_TOOLS_SITE_METHOD = git
 #RINA_TOOLS_SUBDIR = rina-tools
 
-RINA_TOOLS_SITE = output/build/fakelinuxdep-pristine-1.5/rina-tools
+RINA_TOOLS_SITE = output/build/fakelinuxdep-arcfire/rina-tools
 RINA_TOOLS_SITE_METHOD = local
 
 RINA_TOOLS_INSTALL_STAGING = YES

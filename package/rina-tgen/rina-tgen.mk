@@ -7,7 +7,7 @@ RINA_TGEN_VERSION = master
 RINA_TGEN_SITE = https://github.com/IRATI/traffic-generator.git
 RINA_TGEN_SITE_METHOD = git
 
-#RINA_TGEN_SITE = output/build/fakelinuxdep-pristine-1.5/rina-tools
+#RINA_TGEN_SITE = output/build/fakelinuxdep-arcfire/rina-tools
 #RINA_TGEN_SITE_METHOD = local
 
 RINA_TGEN_INSTALL_STAGING = YES

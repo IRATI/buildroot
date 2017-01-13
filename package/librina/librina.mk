@@ -2,13 +2,13 @@
 # librina				   #
 ############################################
 
-LIBRINA_VERSION = pristine-1.5
+LIBRINA_VERSION = arcfire
 
 #LIBRINA_SITE = https://github.com/IRATI/stack.git
 #LIBRINA_SITE_METHOD = git
 #LIBRINA_SUBDIR = librina
 
-LIBRINA_SITE = output/build/fakelinuxdep-pristine-1.5/librina
+LIBRINA_SITE = output/build/fakelinuxdep-arcfire/librina
 LIBRINA_SITE_METHOD = local
 
 LIBRINA_INSTALL_STAGING = YES

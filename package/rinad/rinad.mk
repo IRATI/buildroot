@@ -2,13 +2,13 @@
 # rinad                                    #
 ############################################
 
-RINAD_VERSION = pristine-1.5
+RINAD_VERSION = arcfire
 
 #RINAD_SITE = https://github.com/IRATI/stack.git
 #RINAD_SITE_METHOD = git
 #RINAD_SUBDIR = rinad
 
-RINAD_SITE = output/build/fakelinuxdep-pristine-1.5/rinad
+RINAD_SITE = output/build/fakelinuxdep-arcfire/rinad
 RINAD_SITE_METHOD = local
 
 RINAD_INSTALL_STAGING = YES
