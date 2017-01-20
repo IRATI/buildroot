@@ -15,9 +15,9 @@ RINAD_PLUGINS_INSTALL_TARGET = YES
 RINAD_PLUGINS_DEPENDENCIES = host-pkgconf linux
 RINAD_PLUGINS_LICENSE = LGPL
 
-RINAD_PLUGINS_MODULE_SUBDIRS = plugins/cherish-urgency plugins/cong_avoidance plugins/lfa plugins/multipath plugins/red
+RINAD_PLUGINS_MODULE_SUBDIRS = plugins/cong_avoidance plugins/dctcp plugins/lfa plugins/multipath plugins/red plugins/qta_mux
 
-RINAD_PLUGINS_DIRNAMES = cherish-urgency cong_avoidance lfa multipath red
+RINAD_PLUGINS_DIRNAMES = cong_avoidance dctcp lfa multipath red qta_mux
 
 # This used to be RINAD_PLUGINS_INSTALL_TARGET_CMDS, see the explanation below
 define RINAD_PLUGINS_INSTALL_MANIFESTS

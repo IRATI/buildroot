@@ -12,6 +12,7 @@ fi
 
 # trigger new download
 rm dl/fakelinuxdep*
+rm dl/rina-tgen*
 
 # clean IRATI software build
 make fakelinuxdep-dirclean
