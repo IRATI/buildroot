@@ -17,8 +17,24 @@ FAKELINUXDEP_INSTALL_STAGING = YES
 FAKELINUXDEP_INSTALL_TARGET = YES
 FAKELINUXDEP_DEPENDENCIES =
 FAKELINUXDEP_LICENSE = LGPL
-FAKELINUXDEP_SUBDIR = fakelinuxdep
-FAKELINUXDEP_AUTORECONF = YES
-FAKELINUXDEP_AUTORECONF_OPTS = -i -f -Wall
 
-$(eval $(autotools-package))
+define FAKELINUXDEP_CONFIGURE_CMDS
+	echo "fakelinuxdep: configuring"
+	for p in $(FAKELINUXDEP_PKGDIR)/*.patch.manual ; do \
+		 patch -d $(@D) -p1 < $$p ; \
+	done
+endef
+
+define FAKELINUXDEP_BUILD_CMDS
+	echo "fakelinuxdep: build"
+endef
+
+define FAKELINUXDEP_INSTALL_STAGING_CMDS
+	echo "fakelinuxdep: install staging"
+endef
+
+define FAKELINUXDEP_INSTALL_TARGET_CMDS
+	echo "fakelinuxdep: install target"
+endef
+
+$(eval $(generic-package))
