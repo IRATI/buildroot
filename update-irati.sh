@@ -16,7 +16,6 @@ rm dl/rina-tgen*
 
 # clean IRATI software build
 make fakelinuxdep-dirclean
-make linux-dirclean
 make librina-dirclean
 make rinad-dirclean
 make rinad-plugins-dirclean
