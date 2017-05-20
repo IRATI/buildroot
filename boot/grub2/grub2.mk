@@ -7,7 +7,7 @@
 GRUB2_VERSION = 2.00
 GRUB2_SITE = $(BR2_GNU_MIRROR)/grub
 GRUB2_SOURCE = grub-$(GRUB2_VERSION).tar.xz
-GRUB2_LICENSE = GPLv3+
+GRUB2_LICENSE = GPL-3.0+
 GRUB2_LICENSE_FILES = COPYING
 GRUB2_DEPENDENCIES = host-bison host-flex
 
@@ -45,6 +45,9 @@ endif
 # the confusion, it also uses NM, OBJCOPY and STRIP to build the
 # bootloader itself; none of these are used to build the native
 # tools.
+#
+# NOTE: TARGET_STRIP is overridden by BR2_STRIP_none, so always
+# use the cross compile variant to ensure grub2 builds
 
 GRUB2_CONF_ENV = \
 	$(HOST_CONFIGURE_OPTS) \
@@ -55,14 +58,14 @@ GRUB2_CONF_ENV = \
 	TARGET_LDFLAGS="$(TARGET_LDFLAGS)" \
 	NM="$(TARGET_NM)" \
 	OBJCOPY="$(TARGET_OBJCOPY)" \
-	STRIP="$(TARGET_STRIP)"
+	STRIP="$(TARGET_CROSS)strip"
 
 GRUB2_CONF_OPTS = \
 	--target=$(GRUB2_TARGET) \
 	--with-platform=$(GRUB2_PLATFORM) \
 	--disable-grub-mkfont \
 	--enable-efiemu=no \
-	--enable-liblzma=no \
+	ac_cv_lib_lzma_lzma_code=no \
 	--enable-device-mapper=no \
 	--enable-libzfs=no \
 	--disable-werror

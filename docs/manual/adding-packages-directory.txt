@@ -7,7 +7,7 @@ First of all, create a directory under the +package+ directory for
 your software, for example +libfoo+.
 
 Some packages have been grouped by topic in a sub-directory:
-+x11r7+, +efl+ and +matchbox+. If your package fits in
++x11r7+, +qt5+ and +gstreamer+. If your package fits in
 one of these categories, then create your package directory in these.
 New subdirectories are discouraged, however.
 
@@ -28,7 +28,8 @@ contain:
 config BR2_PACKAGE_LIBFOO
 	bool "libfoo"
 	help
-	  This is a comment that explains what libfoo is.
+	  This is a comment that explains what libfoo is. The help text
+	  should be wrapped.
 
 	  http://foosoftware.org/libfoo/
 ---------------------------
@@ -36,8 +37,9 @@ config BR2_PACKAGE_LIBFOO
 The +bool+ line, +help+ line and other metadata information about the
 configuration option must be indented with one tab. The help text
 itself should be indented with one tab and two spaces, lines should
-not be longer than 72 columns, and it must mention the upstream URL
-of the project.
+be wrapped to fit 72 columns, where tab counts for 8, so 62 characters
+in the text itself. The help text must mention the upstream URL of the
+project after an empty line.
 
 As a convention specific to Buildroot, the ordering of the attributes
 is as follows:
@@ -311,12 +313,16 @@ use in the comment.
 ** Dependency symbol: +BR2_TOOLCHAIN_USES_GLIBC+,
    +BR2_TOOLCHAIN_USES_MUSL+, +BR2_TOOLCHAIN_USES_UCLIBC+
 ** Comment string: for the C library, a slightly different comment text
-   is used: +foo needs an (e)glibc toolchain+, or `foo needs an (e)glibc
+   is used: +foo needs a glibc toolchain+, or `foo needs a glibc
    toolchain w/ C++`
 
 * C++ support
 ** Dependency symbol: +BR2_INSTALL_LIBSTDCPP+
 ** Comment string: `C++`
+
+* Fortran support
+** Dependency symbol: +BR2_TOOLCHAIN_HAS_FORTRAN+
+** Comment string: `fortran`
 
 * thread support
 ** Dependency symbol: +BR2_TOOLCHAIN_HAS_THREADS+
@@ -379,9 +385,6 @@ Some features can be provided by more than one package, such as the
 openGL libraries.
 
 See xref:virtual-package-tutorial[] for more on the virtual packages.
-
-See xref:virtual-package-list[] for the symbols to depend on if your package
-depends on a feature provided by a virtual package.
 
 === The +.mk+ file
 

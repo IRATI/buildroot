@@ -36,7 +36,7 @@ endif
 endif
 
 $(1)_DEPENDENCIES = host-lzop
-$(1)_LICENSE = GPLv2 with exceptions
+$(1)_LICENSE = GPL-2.0 with exceptions
 $(1)_LICENSE_FILES = COPYING
 
 $(1)_CUSTOM_EMBEDDED_ENV_PATH = $$(call qstrip,$$(BR2_TARGET_$(1)_CUSTOM_EMBEDDED_ENV_PATH))
@@ -61,6 +61,8 @@ else ifeq ($$(KERNEL_ARCH),x86_64)
 $(1)_ARCH = x86
 else ifeq ($$(KERNEL_ARCH),powerpc)
 $(1)_ARCH = ppc
+else ifeq ($$(KERNEL_ARCH),arm64)
+$(1)_ARCH = arm
 else
 $(1)_ARCH = $$(KERNEL_ARCH)
 endif

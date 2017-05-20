@@ -1,18 +1,24 @@
-comment "ola needs a toolchain w/ C++, threads, wchar, dynamic library"
-	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_USE_WCHAR \
-		|| !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
+comment "ola needs a toolchain w/ C++, threads, dynamic library, host and target gcc >= 4.5"
+	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS \
+		|| BR2_STATIC_LIBS || !BR2_HOST_GCC_AT_LEAST_4_5 \
+		|| !BR2_TOOLCHAIN_GCC_AT_LEAST_4_5
+	depends on BROKEN
 	depends on BR2_PACKAGE_PROTOBUF_ARCH_SUPPORTS
 
-config BR2_PACKAGE_OLA
+menuconfig BR2_PACKAGE_OLA
 	bool "ola (open lighting architecture)"
 	select BR2_PACKAGE_PROTOBUF
 	select BR2_PACKAGE_UTIL_LINUX_LIBUUID
 	select BR2_PACKAGE_UTIL_LINUX
+	# Build fails with current protobuf
+	# https://github.com/OpenLightingProject/ola/issues/1192
+	depends on BROKEN
 	depends on BR2_INSTALL_LIBSTDCPP # protobuf
 	depends on !BR2_STATIC_LIBS # protobuf
-	depends on BR2_USE_WCHAR # util-linux
 	depends on BR2_TOOLCHAIN_HAS_THREADS
 	depends on BR2_PACKAGE_PROTOBUF_ARCH_SUPPORTS
+	depends on BR2_HOST_GCC_AT_LEAST_4_5 # protobuf
+	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_5 # protobuf
 	help
 	  Open Lighting Architecture provides applications
 	  with a mechanism to send and receive DMX512 & RDM
@@ -22,10 +28,11 @@ config BR2_PACKAGE_OLA
 
 if BR2_PACKAGE_OLA
 
-menu "bindings and interface"
+comment "bindings and interface"
 
 config BR2_PACKAGE_OLA_WEB
 	bool "http interface"
+	depends on BR2_PACKAGE_LIBGPG_ERROR_ARCH_SUPPORTS # libgcrypt, libmicrohttpd
 	select BR2_PACKAGE_LIBMICROHTTPD
 	help
 	  Build OLA with browser interface.
@@ -42,9 +49,7 @@ config BR2_PACKAGE_OLA_SLP
 	help
 	  Build OLA with slp tools.
 
-endmenu
-
-menu "tests and examples"
+comment "tests and examples"
 
 config BR2_PACKAGE_OLA_EXAMPLES
 	bool "examples"
@@ -55,12 +60,12 @@ config BR2_PACKAGE_OLA_EXAMPLES
 config BR2_PACKAGE_OLA_RDM_TESTS
 	bool "rdm tests"
 	depends on BR2_PACKAGE_OLA_PYTHON_BINDINGS
+	depends on BR2_PACKAGE_PYTHON_NUMPY_ARCH_SUPPORTS
+	select BR2_PACKAGE_PYTHON_NUMPY
 	help
 	  Build OLA RDM tests.
 
-endmenu
-
-menu "plugin selections"
+comment "plugin selections"
 
 config BR2_PACKAGE_OLA_PLUGIN_E131
 	bool "acn E131"
@@ -129,7 +134,5 @@ config BR2_PACKAGE_OLA_PLUGIN_USBPRO
 	select BR2_PACKAGE_LIBUSB
 	help
 	  Build UsbPro plugin for OLA.
-
-endmenu
 
 endif
