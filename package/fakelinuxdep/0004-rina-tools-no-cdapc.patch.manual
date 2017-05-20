@@ -1,0 +1,13 @@
+diff --git a/rina-tools/src/Makefile.am b/rina-tools/src/Makefile.am
+index a8851b5c2..deed56472 100644
+--- a/rina-tools/src/Makefile.am
++++ b/rina-tools/src/Makefile.am
+@@ -4,7 +4,7 @@
+ # Written by: Francesco Salvestrini <f DOT salvestrini AT nextworks DOT it>
+ #
+ 
+-SUBDIRS                            = common rina-echo-time rina-cdap-echo manager cdapc mac2ifname rlite key-managers
++SUBDIRS                            = common rina-echo-time rina-cdap-echo manager mac2ifname rlite key-managers
+ EXTRA_DIST                         =
+ DISTCLEANFILES                     =
+ bin_PROGRAMS                       =
