@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2017.05-rc2-00087-g6af021fb3 Configuration
+# Buildroot 2017.05-rc2-00087-g6af021fb3-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_5=y
@@ -2389,126 +2389,9 @@ BR2_PACKAGE_HOST_GO_CGO_LINKING_SUPPORTS=y
 # BR2_PACKAGE_HOST_VBOOT_UTILS is not set
 # BR2_PACKAGE_HOST_XORRISO is not set
 # BR2_PACKAGE_HOST_ZIP is not set
-BR2_LEGACY=y
-
-#
-# Legacy detected: check the content of the menu below
-#
 
 #
 # Legacy config options
-#
-
-#
-# ----------------------------------------------------
-#
-
-#
-# Your old configuration uses legacy options that no  
-#
-
-#
-# longer exist in buildroot, as indicated in the menu 
-#
-
-#
-# below. As long as these options stay selected, or in
-#
-
-#
-# case of string options are non-empty, the build     
-#
-
-#
-# will fail.                                          
-#
-
-#
-# *                                                   
-#
-
-#
-# Where possible, an automatic conversion from old to 
-#
-
-#
-# new symbols has been performed. Before making any   
-#
-
-#
-# change in this legacy menu, make sure to exit the   
-#
-
-#
-# configuration editor a first time and save the      
-#
-
-#
-# configuration. Otherwise, the automatic conversion  
-#
-
-#
-# of symbols will be lost.                            
-#
-
-#
-# *                                                   
-#
-
-#
-# After this initial save, reopen the configuration   
-#
-
-#
-# editor, inspect the options selected below, read    
-#
-
-#
-# their help texts, and verify/update the new         
-#
-
-#
-# configuration in the corresponding configuration    
-#
-
-#
-# menus. When everything is ok, you can disable the   
-#
-
-#
-# legacy options in the menu below. Once you have     
-#
-
-#
-# disabled all legacy options, this text will         
-#
-
-#
-# disappear and you will be able to start the build.  
-#
-
-#
-# *                                                   
-#
-
-#
-# Note: at some point in the future, the oldest legacy
-#
-
-#
-# options will be removed, and configuration files    
-#
-
-#
-# that still have those options set, will fail to     
-#
-
-#
-# build, or run, in unpredictable ways.               
-#
-
-#
-# ----------------------------------------------------
 #
 
 #
@@ -2522,7 +2405,7 @@ BR2_LEGACY=y
 # BR2_PACKAGE_KODI_RTMPDUMP is not set
 # BR2_PACKAGE_KODI_VISUALISATION_FOUNTAIN is not set
 # BR2_PACKAGE_PORTMAP is not set
-BR2_BINUTILS_VERSION_2_25_X=y
+# BR2_BINUTILS_VERSION_2_25_X is not set
 # BR2_TOOLCHAIN_BUILDROOT_INET_RPC is not set
 BR2_TARGET_ROOTFS_EXT2_EXTRA_BLOCKS=0
 # BR2_PACKAGE_SYSTEMD_KDBUS is not set
@@ -2577,7 +2460,7 @@ BR2_TARGET_ROOTFS_EXT2_EXTRA_BLOCKS=0
 # BR2_KERNEL_HEADERS_3_19 is not set
 # BR2_PACKAGE_LIBEVAS_GENERIC_LOADERS is not set
 # BR2_PACKAGE_ELEMENTARY is not set
-BR2_LINUX_KERNEL_CUSTOM_LOCAL=y
+# BR2_LINUX_KERNEL_CUSTOM_LOCAL is not set
 
 #
 # Legacy options removed in 2016.08
