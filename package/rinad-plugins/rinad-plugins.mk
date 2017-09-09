@@ -23,7 +23,7 @@ RINAD_PLUGINS_DIRNAMES = cong_avoidance dctcp lfa multipath red qta_mux
 define RINAD_PLUGINS_INSTALL_MANIFESTS
 	for plu in $(RINAD_PLUGINS_DIRNAMES) ; do \
 		manif=`ls -1 $(@D)/plugins/$${plu}/ | grep manifest` ; \
-		$(INSTALL) -D -m 0644 $(@D)/plugins/$${plu}/$${manif} $(TARGET_DIR)/lib/modules/4.1.33-irati/extra ; \
+		$(INSTALL) -D -m 0644 $(@D)/plugins/$${plu}/$${manif} $(TARGET_DIR)/lib/modules/4.9.28-irati/extra ; \
 	done
 endef
 
