@@ -1,15 +1,8 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2017.05-rc2-00087-g6af021fb3-dirty Configuration
+# Buildroot 2017.05-rc2-00097-g273bcb457 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
-BR2_HOST_GCC_AT_LEAST_4_5=y
-BR2_HOST_GCC_AT_LEAST_4_6=y
-BR2_HOST_GCC_AT_LEAST_4_7=y
-BR2_HOST_GCC_AT_LEAST_4_8=y
-BR2_HOST_GCC_AT_LEAST_4_9=y
-BR2_HOST_GCC_AT_LEAST_5=y
-BR2_HOST_GCC_AT_LEAST_6=y
 
 #
 # Target options
@@ -114,7 +107,6 @@ BR2_STRIP_EXCLUDE_DIRS=""
 # BR2_OPTIMIZE_3 is not set
 # BR2_OPTIMIZE_G is not set
 BR2_OPTIMIZE_S=y
-# BR2_GOOGLE_BREAKPAD_ENABLE is not set
 
 #
 # Stack Smashing Protection needs a toolchain w/ SSP
@@ -487,11 +479,13 @@ BR2_PACKAGE_MPLAYER_ARCH_SUPPORTS=y
 # gdb/gdbserver needs a toolchain w/ threads, threads debug
 #
 BR2_PACKAGE_GOOGLE_BREAKPAD_ARCH_SUPPORTS=y
-# BR2_PACKAGE_GOOGLE_BREAKPAD is not set
+
+#
+# google-breakpad requires a glibc or uClibc toolchain w/ wchar, thread, C++, gcc >= 4.8
+#
 # BR2_PACKAGE_IOZONE is not set
 # BR2_PACKAGE_KEXEC is not set
 # BR2_PACKAGE_KTAP is not set
-# BR2_PACKAGE_KVM_UNIT_TESTS is not set
 # BR2_PACKAGE_LATENCYTOP is not set
 # BR2_PACKAGE_LMBENCH is not set
 # BR2_PACKAGE_LSOF is not set
@@ -682,7 +676,10 @@ BR2_PACKAGE_CMAKE_ARCH_SUPPORTS=y
 #
 # BR2_PACKAGE_CEGUI06 is not set
 # BR2_PACKAGE_DIRECTFB is not set
-# BR2_PACKAGE_EFL is not set
+
+#
+# efl needs a toolchain w/ C++, dynamic library, gcc >= 4.7, threads, wchar
+#
 # BR2_PACKAGE_FBDUMP is not set
 # BR2_PACKAGE_FBGRAB is not set
 # BR2_PACKAGE_FBSET is not set
@@ -905,7 +902,10 @@ BR2_PACKAGE_LUAJIT_ARCH_SUPPORTS=y
 BR2_PACKAGE_MONO_ARCH_SUPPORTS=y
 # BR2_PACKAGE_MONO is not set
 BR2_PACKAGE_NODEJS_ARCH_SUPPORTS=y
-# BR2_PACKAGE_NODEJS is not set
+
+#
+# nodejs needs a toolchain w/ C++, dynamic library, threads, gcc >= 4.8, wchar
+#
 # BR2_PACKAGE_OPENJDK is not set
 # BR2_PACKAGE_PERL is not set
 # BR2_PACKAGE_PHP is not set
@@ -1578,7 +1578,7 @@ BR2_PACKAGE_LIBNL=y
 # BR2_PACKAGE_LIBOAUTH is not set
 # BR2_PACKAGE_LIBOPING is not set
 # BR2_PACKAGE_LIBOSIP2 is not set
-# BR2_PACKAGE_LIBPCAP is not set
+BR2_PACKAGE_LIBPCAP=y
 # BR2_PACKAGE_LIBPJSIP is not set
 BR2_PACKAGE_LIBRINA=y
 # BR2_PACKAGE_LIBRSYNC is not set
@@ -1771,10 +1771,20 @@ BR2_PACKAGE_OPENBLAS_ARCH_SUPPORTS=y
 # BR2_PACKAGE_POCO is not set
 BR2_PACKAGE_PROTOBUF_ARCH_SUPPORTS=y
 BR2_PACKAGE_PROTOBUF=y
-# BR2_PACKAGE_PROTOBUF_C is not set
+
+#
+# protobuf needs a toolchain w/ C++, threads, dynamic library, host and target gcc >= 4.5
+#
+
+#
+# protobuf-c needs a toolchain w/ C++, threads, host gcc >= 4.5
+#
 # BR2_PACKAGE_QHULL is not set
 # BR2_PACKAGE_QLIBC is not set
-# BR2_PACKAGE_RIEMANN_C_CLIENT is not set
+
+#
+# riemann-c-client needs a toolchain w/ C++, threads, host gcc >= 4.5
+#
 # BR2_PACKAGE_SHAPELIB is not set
 # BR2_PACKAGE_SKALIBS is not set
 # BR2_PACKAGE_SPHINXBASE is not set
@@ -1942,7 +1952,7 @@ BR2_PACKAGE_DHCPCD=y
 # BR2_PACKAGE_IODINE is not set
 # BR2_PACKAGE_IPERF is not set
 # BR2_PACKAGE_IPERF3 is not set
-# BR2_PACKAGE_IPROUTE2 is not set
+BR2_PACKAGE_IPROUTE2=y
 # BR2_PACKAGE_IPSEC_TOOLS is not set
 # BR2_PACKAGE_IPSET is not set
 # BR2_PACKAGE_IPTABLES is not set
@@ -1977,7 +1987,10 @@ BR2_PACKAGE_DHCPCD=y
 BR2_PACKAGE_MONGREL2_LIBC_SUPPORTS=y
 # BR2_PACKAGE_MONGREL2 is not set
 # BR2_PACKAGE_MONKEY is not set
-# BR2_PACKAGE_MOSH is not set
+
+#
+# mosh needs a toolchain w/ C++, threads, dynamic library, wchar, host and target gcc >= 4.5
+#
 # BR2_PACKAGE_MOSQUITTO is not set
 # BR2_PACKAGE_MROUTED is not set
 # BR2_PACKAGE_MTR is not set
@@ -2068,7 +2081,8 @@ BR2_PACKAGE_SOCAT=y
 # BR2_PACKAGE_SSLH is not set
 # BR2_PACKAGE_STRONGSWAN is not set
 # BR2_PACKAGE_STUNNEL is not set
-# BR2_PACKAGE_TCPDUMP is not set
+BR2_PACKAGE_TCPDUMP=y
+# BR2_PACKAGE_TCPDUMP_SMB is not set
 # BR2_PACKAGE_TCPING is not set
 # BR2_PACKAGE_TCPREPLAY is not set
 # BR2_PACKAGE_TFTPD is not set
@@ -2371,6 +2385,10 @@ BR2_PACKAGE_HOST_GO_CGO_LINKING_SUPPORTS=y
 # BR2_PACKAGE_HOST_JSMIN is not set
 # BR2_PACKAGE_HOST_LPC3250LOADER is not set
 # BR2_PACKAGE_HOST_LTTNG_BABELTRACE is not set
+
+#
+# mfgtools needs host gcc >= 4.8
+#
 # BR2_PACKAGE_HOST_MKE2IMG is not set
 # BR2_PACKAGE_HOST_MKPASSWD is not set
 # BR2_PACKAGE_HOST_MTD is not set
