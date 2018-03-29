@@ -1,6 +1,7 @@
 config BR2_PACKAGE_LIBRINA
         bool "librina"
         select BR2_PACKAGE_FAKELINUXDEP
+        select BR2_PACKAGE_PROTOBUF
         help
           The librina package is part of the IRATI stack.
 
