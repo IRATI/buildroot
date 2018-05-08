@@ -1923,7 +1923,7 @@ BR2_PACKAGE_DHCPCD=y
 #
 # ejabberd needs erlang, toolchain w/ C++
 #
-# BR2_PACKAGE_ETHTOOL is not set
+BR2_PACKAGE_ETHTOOL=y
 # BR2_PACKAGE_FAIFA is not set
 # BR2_PACKAGE_FASTD is not set
 # BR2_PACKAGE_FCGIWRAP is not set
@@ -1951,7 +1951,7 @@ BR2_PACKAGE_DHCPCD=y
 # BR2_PACKAGE_INADYN is not set
 # BR2_PACKAGE_IODINE is not set
 # BR2_PACKAGE_IPERF is not set
-# BR2_PACKAGE_IPERF3 is not set
+BR2_PACKAGE_IPERF3=y
 BR2_PACKAGE_IPROUTE2=y
 # BR2_PACKAGE_IPSEC_TOOLS is not set
 # BR2_PACKAGE_IPSET is not set

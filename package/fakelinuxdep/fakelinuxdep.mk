@@ -6,7 +6,7 @@
 # can be compiled with gcc6
 FAKELINUXDEP_VERSION = arcfire
 
-FAKELINUXDEP_SITE = https://github.com/IRATI/stack.git
+FAKELINUXDEP_SITE = https://github.com/rodellar/stack.git
 FAKELINUXDEP_SITE_METHOD = git
 
 # Enable these ones to fast download from a local repo

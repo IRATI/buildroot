@@ -4,7 +4,7 @@
 
 RINA_TGEN_VERSION = master
 
-RINA_TGEN_SITE = https://github.com/IRATI/traffic-generator.git
+RINA_TGEN_SITE = https://github.com/edugrasa/traffic-generator.git
 RINA_TGEN_SITE_METHOD = git
 
 #RINA_TGEN_SITE = output/build/fakelinuxdep-arcfire/rina-tools
@@ -17,6 +17,6 @@ RINA_TGEN_LICENSE = LGPL
 RINA_TGEN_AUTORECONF = YES
 RINA_TGEN_AUTORECONF_OPTS = -i -f -Wall
 RINA_TGEN_CONF_ENV = PKG_CONFIG_PATH=/usr/lib/pkgconfig
-RINA_TGEN_CONF_ENV += LD_LIBRARY_PATH=/usr/lib:/lib
+RINA_TGEN_CONF_ENV += LD_LIBRARY_PATH=/usr/lib:/lib:/usr/lib/pkgconfig/
 
 $(eval $(autotools-package))
