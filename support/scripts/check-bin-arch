@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 while getopts p:l:r:a: OPT ; do
 	case "${OPT}" in
@@ -29,10 +29,24 @@ while read f; do
 		continue
 	fi
 
+	# Skip kernel modules
+	# When building a 32-bit userland on 64-bit architectures, the kernel
+	# and its modules may still be 64-bit. To keep the basic
+	# check-bin-arch logic simple, just skip this directory.
+	if [[ "${f}" =~ ^/lib/modules/.* ]]; then
+		continue
+	fi
+
 	# Skip files in /usr/share, several packages (qemu,
 	# pru-software-support) legitimately install ELF binaries that
 	# are not for the target architecture
 	if [[ "${f}" =~ ^/usr/share/.* ]]; then
+		continue
+	fi
+
+	# Skip symlinks. Some symlinks may have absolute paths as
+	# target, pointing to host binaries while we're building.
+	if [[ -L "${TARGET_DIR}/${f}" ]]; then
 		continue
 	fi
 

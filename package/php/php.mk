@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PHP_VERSION = 7.1.5
+PHP_VERSION = 7.2.3
 PHP_SITE = http://www.php.net/distributions
 PHP_SOURCE = php-$(PHP_VERSION).tar.xz
 PHP_INSTALL_STAGING = YES
@@ -55,6 +55,7 @@ endif
 PHP_CONFIG_SCRIPTS = php-config
 
 PHP_CFLAGS = $(TARGET_CFLAGS)
+PHP_CXXFLAGS = $(TARGET_CXXFLAGS)
 
 # The OPcache extension isn't cross-compile friendly
 # Throw some defines here to avoid patching heavily
@@ -159,7 +160,7 @@ endif
 
 ifeq ($(BR2_PACKAGE_PHP_EXT_GETTEXT),y)
 PHP_CONF_OPTS += --with-gettext=$(STAGING_DIR)/usr
-PHP_DEPENDENCIES += $(if $(BR2_NEEDS_GETTEXT),gettext)
+PHP_DEPENDENCIES += $(TARGET_NLS_DEPENDENCIES)
 endif
 
 ifeq ($(BR2_PACKAGE_PHP_EXT_ICONV),y)
@@ -173,6 +174,7 @@ endif
 
 ifeq ($(BR2_PACKAGE_PHP_EXT_INTL),y)
 PHP_CONF_OPTS += --enable-intl --with-icu-dir=$(STAGING_DIR)/usr
+PHP_CXXFLAGS += "`$(STAGING_DIR)/usr/bin/icu-config --cxxflags`"
 PHP_DEPENDENCIES += icu
 # The intl module is implemented in C++, but PHP fails to use
 # g++ as the compiler for the final link. As a workaround,
@@ -229,6 +231,11 @@ endif
 define PHP_DISABLE_PCRE_JIT
 	$(SED) '/^#define SUPPORT_JIT/d' $(@D)/ext/pcre/pcrelib/config.h
 endef
+
+define PHP_DISABLE_VALGRIND
+	$(SED) '/^#define HAVE_VALGRIND/d' $(@D)/main/php_config.h
+endef
+PHP_POST_CONFIGURE_HOOKS += PHP_DISABLE_VALGRIND
 
 ### Use external PCRE if it's available
 ifeq ($(BR2_PACKAGE_PCRE),y)
@@ -343,6 +350,6 @@ endef
 
 PHP_POST_INSTALL_TARGET_HOOKS += PHP_INSTALL_FIXUP
 
-PHP_CONF_ENV += CFLAGS="$(PHP_CFLAGS)"
+PHP_CONF_ENV += CFLAGS="$(PHP_CFLAGS)" CXXFLAGS="$(PHP_CXXFLAGS)"
 
 $(eval $(autotools-package))
